@@ -1,19 +1,21 @@
-
-
 <div class="row">
-    <div class="col-sm-6">
-        <div class="container">
-          <h1>Veja o que você vai precisar para abrir sua conta Original Empresas</h1>
-          
-        </div>
-    </div>
-    <div class="col-sm-6">
-        <h1>Vamos começar? Primeiro, digite o CNPJ da empresa</h1>
-        <p>Seus dados serão automaticamente salvos durante todo o processo</p>
-        <div class="form-group"> 
-            <input id="nickName" name="nickName" type="text" class="form-control border-top-0 border-right-0 border-left-0 "
-                   placeholder="CNPJ"> 
-        </div>
-        <button type="submit" class="btn btn-block btn btn-secondary">CONTINUAR</button> 
+  <div class="col-sm-6">
+    <div class="container">
+      <h1>Veja o que você vai precisar para abrir sua conta Original Empresas</h1>
     </div>
   </div>
+  <div class="col-sm-6">
+    <h1>Vamos começar? Primeiro, digite o CNPJ da empresa</h1>
+    <p>Seus dados serão automaticamente salvos durante todo o processo</p>
+    
+   <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <div class="form-group">
+        <input id="cnpj" name="cnpj" type="text" 
+               class="form-control border-top-0 border-right-0 border-left-0"
+               placeholder="CNPJ" required [(ngModel)]="cnpjText" #cnpj="ngModel">
+               <span *ngIf="(cnpj.dirty || cnpj.touched)">CNPJ inválido</span>
+      </div>
+      <button type="submit" class="btn btn-block btn btn-secondary">CONTINUAR</button>
+    </form>
+  </div>
+</div>

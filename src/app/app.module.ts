@@ -7,6 +7,7 @@ import { FooterComponent } from './component/footer/footer.component';
 import { AppRoutingModule } from './app-routing.module';
 import { InicioComponent } from './component/inicio/inicio.component';
 import { IdentificacaoComponent } from './component/identificacao/identificacao.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { IdentificacaoComponent } from './component/identificacao/identificacao.
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
