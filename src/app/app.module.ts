@@ -7,7 +7,9 @@ import { FooterComponent } from './component/footer/footer.component';
 import { AppRoutingModule } from './app-routing.module';
 import { InicioComponent } from './component/inicio/inicio.component';
 import { IdentificacaoComponent } from './component/identificacao/identificacao.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TextMaskModule } from 'angular2-text-mask';
+import { NgBrazil } from 'ng-brazil' 
 
 @NgModule({
   declarations: [
@@ -21,6 +23,9 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
+    TextMaskModule,
+    NgBrazil
   ],
   providers: [],
   bootstrap: [AppComponent]

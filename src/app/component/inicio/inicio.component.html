@@ -7,15 +7,21 @@
   <div class="col-sm-6">
     <h1>Vamos começar? Primeiro, digite o CNPJ da empresa</h1>
     <p>Seus dados serão automaticamente salvos durante todo o processo</p>
-    
-   <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-      <div class="form-group">
+    <form [formGroup]="inicioFormGroup" (ngSubmit)="onSubmit(inicioFormGroup)"  >
+
+      <div class="form-group" >
         <input id="cnpj" name="cnpj" type="text" 
-               class="form-control border-top-0 border-right-0 border-left-0"
-               placeholder="CNPJ" required [(ngModel)]="cnpjText" #cnpj="ngModel">
-               <span *ngIf="(cnpj.dirty || cnpj.touched)">CNPJ inválido</span>
+        class="form-control border-top-0 border-right-0 border-left-0 shadow-none"
+                autocomplete="off" placeholder="CNPJ"
+               formControlName="cnpj" cnpj [textMask]="{mask: MASKS.cnpj.textMask}"
+               (input)="onSearchChange($event.target.value)">
+               <p *ngIf="formDataValidate.cnpj">
+                Errors Found Message
+              </p>
       </div>
-      <button type="submit" class="btn btn-block btn btn-secondary">CONTINUAR</button>
+      <button type="submit" class="btn btn-block btn btn-success" [disabled]="!inicioFormGroup.valid" >CONTINUAR</button>
     </form>
+
   </div>
-</div>
+  </div>
+  <pre>{{ inicioFormGroup.value | json }}</pre>
